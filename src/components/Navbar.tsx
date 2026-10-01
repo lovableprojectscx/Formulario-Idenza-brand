@@ -9,7 +9,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin, isSaved = true }) => {
   return (
-    <header className="sticky top-0 z-30 border-b border-tinta-border bg-tinta/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-30 border-b border-tinta-border bg-blanco/95 backdrop-blur-sm shadow-sm">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Brand identity */}
         <IdenzaLogo showTagline={true} />
@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin, isSaved = true }) =
         {/* Right actions */}
         <div className="flex items-center gap-3">
           {isSaved && (
-            <div className="hidden sm:flex items-center gap-1.5 text-xs text-blanco-muted font-sans">
+            <div className="hidden sm:flex items-center gap-1.5 text-xs text-tinta-muted font-sans">
               <Check className="w-3.5 h-3.5 text-ambar" />
               <span>Borrador guardado</span>
             </div>
@@ -25,10 +25,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin, isSaved = true }) =
 
           <button
             onClick={onOpenAdmin}
-            className="flex items-center gap-2 text-xs font-medium text-blanco-muted hover:text-blanco px-3 py-1.5 rounded-lg bg-tinta-surface hover:bg-tinta-hover border border-tinta-border transition-colors"
+            className="flex items-center gap-2 text-xs font-medium text-tinta-soft hover:text-tinta px-3 py-1.5 rounded-lg bg-blanco hover:bg-blanco-hover border border-tinta-border transition-colors shadow-sm"
             title="Acceso exclusivo del equipo"
           >
-            <Lock className="w-3 h-3 text-ambar" />
+            <Lock className="w-3.5 h-3.5 text-ambar" />
             <span>Acceso del equipo</span>
           </button>
         </div>

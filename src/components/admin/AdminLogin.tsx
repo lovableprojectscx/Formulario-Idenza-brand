@@ -24,18 +24,18 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onSuccess, onCancel }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-tinta/80 backdrop-blur-sm animate-fadeIn">
-      <div className="w-full max-w-sm bg-tinta-surface border border-tinta-border rounded-2xl p-6 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-tinta/60 backdrop-blur-sm animate-fadeIn">
+      <div className="w-full max-w-sm bg-blanco border border-tinta-border rounded-2xl p-6 shadow-2xl">
         <div className="flex items-center justify-between mb-6">
           <button
             onClick={onCancel}
             type="button"
-            className="flex items-center gap-1.5 text-xs text-blanco-muted hover:text-blanco transition-colors"
+            className="flex items-center gap-1.5 text-xs text-tinta-muted hover:text-tinta transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Volver</span>
           </button>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-blanco-dim">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-tinta-muted">
             Equipo IDENZA
           </span>
         </div>
@@ -44,10 +44,10 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onSuccess, onCancel }) =
           <div className="mb-3 flex justify-center">
             <IdenzaLogo size="md" />
           </div>
-          <h3 className="text-base font-display font-medium text-blanco">
+          <h3 className="text-base font-display font-medium text-tinta">
             Panel de Recepción
           </h3>
-          <p className="text-xs text-blanco-dim mt-1">
+          <p className="text-xs text-tinta-muted mt-1">
             Ingrese la clave del equipo para consultar las respuestas recibidas.
           </p>
         </div>
@@ -64,20 +64,20 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onSuccess, onCancel }) =
                   setError(false);
                 }}
                 placeholder="Contraseña..."
-                className={`w-full pl-3.5 pr-10 py-2.5 bg-tinta border rounded-xl text-blanco placeholder-blanco-dim text-xs font-mono tracking-wider focus:outline-none transition-colors ${
-                  error ? 'border-rose-500' : 'border-tinta-border focus:border-ambar'
+                className={`w-full pl-3.5 pr-10 py-2.5 bg-blanco border rounded-xl text-tinta placeholder-tinta-subtle text-xs font-mono tracking-wider focus:outline-none transition-colors shadow-sm ${
+                  error ? 'border-rose-500' : 'border-tinta-borderDark focus:border-ambar'
                 }`}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-blanco-dim hover:text-blanco p-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-tinta-muted hover:text-tinta p-1"
               >
                 {showPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
               </button>
             </div>
             {error && (
-              <p className="text-[11px] text-rose-400 mt-1.5">
+              <p className="text-[11px] text-rose-600 mt-1.5 font-medium">
                 Contraseña incorrecta.
               </p>
             )}
@@ -85,7 +85,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onSuccess, onCancel }) =
 
           <button
             type="submit"
-            className="w-full py-2.5 px-4 rounded-xl bg-ambar hover:bg-ambar-hover text-tinta font-display font-bold text-xs transition-colors"
+            className="w-full py-2.5 px-4 rounded-xl bg-ambar hover:bg-ambar-hover text-tinta font-display font-bold text-xs transition-colors shadow-sm"
           >
             Ingresar al Panel
           </button>

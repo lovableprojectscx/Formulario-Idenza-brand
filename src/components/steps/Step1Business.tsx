@@ -32,13 +32,13 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
     <div className="space-y-7 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-tinta-border pb-4">
-        <span className="text-xs font-mono tabular-nums text-blanco-dim uppercase tracking-wider block mb-1">
+        <span className="text-xs font-mono tabular-nums text-tinta-muted uppercase tracking-wider block mb-1">
           Parte 01
         </span>
-        <h2 className="text-2xl sm:text-3xl font-display font-medium text-blanco tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-display font-medium text-tinta tracking-tight">
           El negocio
         </h2>
-        <p className="text-blanco-muted text-sm mt-1">
+        <p className="text-tinta-muted text-sm mt-1">
           Lo básico para entender qué hacen.
         </p>
       </div>
@@ -46,10 +46,10 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
       <div className="space-y-6">
         {/* Nombre del negocio */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
             Nombre del negocio
           </label>
-          <p className="text-xs text-blanco-dim mb-2">
+          <p className="text-xs text-tinta-muted mb-2">
             Si todavía no tiene nombre o quiere cambiarlo, dígalo.
           </p>
           <input
@@ -57,16 +57,16 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
             value={data.business_name}
             onChange={(e) => onChange({ business_name: e.target.value })}
             placeholder="Ej. Industrias Metálicas Denza"
-            className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
+            className="w-full px-4 py-3 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-sm focus:outline-none focus:border-ambar focus:ring-1 focus:ring-ambar transition-colors shadow-sm"
           />
         </div>
 
         {/* ¿Qué fabrican o venden? */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
             ¿Qué fabrican o venden?
           </label>
-          <p className="text-xs text-blanco-dim mb-3">
+          <p className="text-xs text-tinta-muted mb-3">
             Marque todo lo que aplique.
           </p>
 
@@ -78,10 +78,10 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
                   key={item}
                   type="button"
                   onClick={() => toggleProduct(item)}
-                  className={`flex items-center justify-between p-3 rounded-xl border text-left text-sm transition-all ${
+                  className={`flex items-center justify-between p-3.5 rounded-xl border text-left text-sm transition-all ${
                     isSelected
-                      ? 'bg-tinta-hover border-ambar/70 text-blanco font-medium'
-                      : 'bg-tinta-surface border-tinta-border text-blanco-muted hover:border-tinta-borderActive hover:text-blanco'
+                      ? 'bg-ambar-subtle border-ambar text-tinta font-medium shadow-sm'
+                      : 'bg-blanco border-tinta-border text-tinta-soft hover:border-tinta-borderDark hover:bg-blanco-hover'
                   }`}
                 >
                   <span>{item}</span>
@@ -89,7 +89,7 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
                     className={`w-4 h-4 rounded-[3px] flex items-center justify-center border transition-all ${
                       isSelected
                         ? 'bg-ambar border-ambar text-tinta'
-                        : 'border-tinta-border bg-tinta'
+                        : 'border-tinta-borderDark bg-blanco'
                     }`}
                   >
                     {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
@@ -105,7 +105,7 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
               value={data.products_other}
               onChange={(e) => onChange({ products_other: e.target.value })}
               placeholder="Otro producto o servicio..."
-              className="w-full px-4 py-2.5 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-xs sm:text-sm focus:outline-none focus:border-ambar transition-colors"
+              className="w-full px-4 py-2.5 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-xs sm:text-sm focus:outline-none focus:border-ambar transition-colors shadow-sm"
             />
           </div>
         </div>
@@ -114,10 +114,10 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* ¿Desde cuándo trabajan? */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
               ¿Desde cuándo trabajan?
             </label>
-            <p className="text-xs text-blanco-dim mb-2">
+            <p className="text-xs text-tinta-muted mb-2">
               Ej. 2015
             </p>
             <input
@@ -125,16 +125,16 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
               value={data.years_operating}
               onChange={(e) => onChange({ years_operating: e.target.value })}
               placeholder="Ej. 2018"
-              className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors tabular-nums"
+              className="w-full px-4 py-3 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-sm focus:outline-none focus:border-ambar transition-colors tabular-nums shadow-sm"
             />
           </div>
 
           {/* ¿Dónde están y hasta dónde llegan? */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
               ¿Dónde están y hasta dónde llegan?
             </label>
-            <p className="text-xs text-blanco-dim mb-2">
+            <p className="text-xs text-tinta-muted mb-2">
               Ciudad, envíos a…
             </p>
             <input
@@ -142,17 +142,17 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
               value={data.location_scope}
               onChange={(e) => onChange({ location_scope: e.target.value })}
               placeholder="Ej. Lima, envíos a todo el Perú"
-              className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
+              className="w-full px-4 py-3 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-sm focus:outline-none focus:border-ambar transition-colors shadow-sm"
             />
           </div>
         </div>
 
         {/* ¿Cómo empezó el negocio? */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
             ¿Cómo empezó el negocio?
           </label>
-          <p className="text-xs text-blanco-dim mb-2">
+          <p className="text-xs text-tinta-muted mb-2">
             En dos o tres líneas. A veces de aquí sale la idea del logo.
           </p>
           <textarea
@@ -160,7 +160,7 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
             value={data.business_story}
             onChange={(e) => onChange({ business_story: e.target.value })}
             placeholder="Cuéntenos brevemente el origen del negocio..."
-            className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm leading-relaxed focus:outline-none focus:border-ambar transition-colors"
+            className="w-full px-4 py-3 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-sm leading-relaxed focus:outline-none focus:border-ambar transition-colors shadow-sm"
           />
         </div>
       </div>

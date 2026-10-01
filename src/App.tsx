@@ -18,7 +18,7 @@ import { AdminLogin } from './components/admin/AdminLogin';
 import { AdminPanel } from './components/admin/AdminPanel';
 import { ArrowLeft, ArrowRight, Lock } from 'lucide-react';
 
-const DRAFT_STORAGE_KEY = 'idenza_briefing_draft_v2';
+const DRAFT_STORAGE_KEY = 'idenza_briefing_draft_v3';
 
 export const App: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -121,7 +121,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-tinta text-blanco flex flex-col font-sans selection:bg-ambar selection:text-tinta">
+    <div className="min-h-screen bg-blanco-hueso text-tinta flex flex-col font-sans selection:bg-ambar selection:text-tinta">
       {/* Navbar */}
       <Navbar onOpenAdmin={() => setShowAdmin(true)} isSaved={!isSubmitted} />
 
@@ -133,16 +133,16 @@ export const App: React.FC = () => {
           <div>
             {/* Header copy as requested by user */}
             <div className="mb-8 border-b border-tinta-border pb-6">
-              <span className="text-xs font-mono tabular-nums text-blanco-dim tracking-wider uppercase block mb-1">
+              <span className="text-xs font-mono tabular-nums text-tinta-muted tracking-wider uppercase block mb-1">
                 Denza
               </span>
-              <h1 className="text-2xl sm:text-3xl font-display font-medium text-blanco tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-display font-medium text-tinta tracking-tight">
                 Cuéntenos de su negocio para diseñar su marca
               </h1>
-              <p className="text-blanco-muted text-sm sm:text-base mt-2 leading-relaxed">
+              <p className="text-tinta-soft text-sm sm:text-base mt-2 leading-relaxed">
                 Con esto armamos el logo y la identidad de su empresa. No hay respuestas buenas ni malas, escriba como le habla a un cliente. Si alguna no aplica, déjela en blanco.
               </p>
-              <div className="mt-3 text-xs font-mono tabular-nums text-blanco-dim">
+              <div className="mt-3 text-xs font-mono tabular-nums text-tinta-muted font-medium">
                 7 partes · unos 10 minutos
               </div>
             </div>
@@ -160,7 +160,7 @@ export const App: React.FC = () => {
             />
 
             {/* Step Card Container */}
-            <div className="bg-tinta-surface border border-tinta-border rounded-2xl p-5 sm:p-8">
+            <div className="bg-blanco border border-tinta-border rounded-2xl p-5 sm:p-8 shadow-sm">
               {currentStep === 1 && (
                 <Step1Business data={formData} onChange={updateFormData} />
               )}
@@ -195,7 +195,7 @@ export const App: React.FC = () => {
                   <button
                     type="button"
                     onClick={handlePrev}
-                    className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-tinta hover:bg-tinta-hover border border-tinta-border text-blanco-muted hover:text-blanco text-xs font-medium transition-colors"
+                    className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-blanco hover:bg-blanco-hover border border-tinta-border text-tinta-soft hover:text-tinta text-xs font-medium transition-colors shadow-sm"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
                     <span>Anterior</span>
@@ -208,7 +208,7 @@ export const App: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-tinta hover:bg-tinta-hover border border-tinta-border hover:border-ambar/50 text-blanco text-xs font-medium transition-all"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-tinta hover:bg-tinta-soft text-blanco text-xs font-medium transition-all shadow-sm"
                   >
                     <span>Siguiente parte</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -221,14 +221,14 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-tinta-border bg-tinta py-6 text-center text-xs text-blanco-dim">
+      <footer className="mt-auto border-t border-tinta-border bg-blanco py-6 text-center text-xs text-tinta-muted">
         <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>© {new Date().getFullYear()} idenza — Demanda real antes que diseño</p>
           <button
             onClick={() => setShowAdmin(true)}
-            className="text-blanco-muted hover:text-blanco flex items-center gap-1.5 transition-colors"
+            className="text-tinta-muted hover:text-tinta flex items-center gap-1.5 transition-colors"
           >
-            <Lock className="w-3 h-3 text-ambar" />
+            <Lock className="w-3 h-3 text-ambar-dark" />
             <span>Acceso del equipo</span>
           </button>
         </div>

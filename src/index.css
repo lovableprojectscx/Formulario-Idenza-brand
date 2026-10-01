@@ -5,65 +5,68 @@
 @layer base {
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: #0E1420;
-    color: #F4F2ED;
+    background-color: #F8F7F4;
+    color: #0E1420;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     letter-spacing: -0.02em;
+    color: #0E1420;
   }
 
-  /* Números en cifras tabulares alineadas como en estado financiero */
+  /* Cifras tabulares alineadas como en estado financiero */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
 }
 
-/* Custom scrollbar */
+/* Light scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0E1420;
+  background: #F8F7F4;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E2C40;
+  background: #CBD5E1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2D3E57;
+  background: #94A3B8;
 }
 
-/* Custom minimal range input styling */
+/* Range slider styling for light mode */
 input[type="range"] {
   -webkit-appearance: none;
-  background: #182436;
+  background: #E2E8F0;
   border-radius: 9999px;
-  height: 4px;
+  height: 6px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
-  background: #F4F2ED;
+  background: #0E1420;
   border: 2px solid #E2A63D;
   cursor: pointer;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
+  background: #000000;
 }
 
 input[type="range"]::-moz-range-thumb {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
-  background: #F4F2ED;
+  background: #0E1420;
   border: 2px solid #E2A63D;
   cursor: pointer;
 }

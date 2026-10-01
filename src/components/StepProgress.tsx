@@ -33,15 +33,15 @@ export const StepProgress: React.FC<StepProgressProps> = ({
   return (
     <div className="w-full mb-8">
       {/* Top progress indicators */}
-      <div className="flex items-center justify-between text-xs text-blanco-muted mb-2 px-0.5">
-        <span className="font-sans font-medium text-blanco">
-          Parte <span className="tabular-nums font-mono text-ambar">{currentStep}</span> de <span className="tabular-nums font-mono">{totalSteps}</span> — {STEPS[currentStep - 1]?.label}
+      <div className="flex items-center justify-between text-xs text-tinta-muted mb-2 px-0.5">
+        <span className="font-sans font-medium text-tinta">
+          Parte <span className="tabular-nums font-mono text-ambar-dark font-semibold">{currentStep}</span> de <span className="tabular-nums font-mono">{totalSteps}</span> — {STEPS[currentStep - 1]?.label}
         </span>
-        <span className="font-mono text-blanco-muted tabular-nums">{progressPercent}% completado</span>
+        <span className="font-mono text-tinta-muted tabular-nums">{progressPercent}% completado</span>
       </div>
 
-      {/* Minimal clean progress bar (amber accent) */}
-      <div className="w-full h-1 bg-tinta-surface border border-tinta-border rounded-full overflow-hidden mb-5">
+      {/* Clean progress bar */}
+      <div className="w-full h-1.5 bg-tinta-border rounded-full overflow-hidden mb-5">
         <div
           className="h-full bg-ambar transition-all duration-300 ease-out"
           style={{ width: `${Math.max(4, progressPercent)}%` }}
@@ -61,10 +61,10 @@ export const StepProgress: React.FC<StepProgressProps> = ({
               onClick={() => onSelectStep(step.id)}
               className={`flex flex-col items-center py-2 px-1 rounded-xl text-center transition-all ${
                 isCurrent
-                  ? 'bg-tinta-surface border border-ambar/50 text-blanco'
+                  ? 'bg-blanco border border-ambar text-tinta shadow-sm'
                   : isDone
-                  ? 'bg-tinta-surface/60 border border-tinta-border text-blanco-muted hover:border-tinta-borderActive hover:text-blanco'
-                  : 'bg-transparent border border-transparent text-blanco-dim cursor-not-allowed opacity-40'
+                  ? 'bg-blanco/80 border border-tinta-border text-tinta-muted hover:border-tinta-borderDark hover:text-tinta'
+                  : 'bg-transparent border border-transparent text-tinta-subtle cursor-not-allowed opacity-50'
               }`}
               disabled={step.id > currentStep}
             >
@@ -73,11 +73,11 @@ export const StepProgress: React.FC<StepProgressProps> = ({
                   isCurrent
                     ? 'bg-ambar text-tinta font-bold'
                     : isDone
-                    ? 'bg-tinta-hover text-blanco border border-tinta-border'
-                    : 'text-blanco-dim'
+                    ? 'bg-blanco-hover text-tinta-soft border border-tinta-border'
+                    : 'text-tinta-subtle'
                 }`}
               >
-                {isDone ? <Check className="w-3.5 h-3.5 stroke-[2.5]" /> : step.num}
+                {isDone ? <Check className="w-3.5 h-3.5 stroke-[2.5] text-ambar-dark" /> : step.num}
               </div>
               <span className="text-[10px] leading-tight font-sans truncate w-full hidden md:block">
                 {step.label}

@@ -72,7 +72,7 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
       try {
         await deleteReferenceImage(imgToRemove.path);
       } catch (err) {
-        console.warn('Error silencioso al remover archivo:', err);
+        console.warn('Error al remover archivo:', err);
       }
     }
   };
@@ -81,13 +81,13 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
     <div className="space-y-7 animate-fadeIn">
       {/* Header */}
       <div className="border-b border-tinta-border pb-4">
-        <span className="text-xs font-mono tabular-nums text-blanco-dim uppercase tracking-wider block mb-1">
+        <span className="text-xs font-mono tabular-nums text-tinta-muted uppercase tracking-wider block mb-1">
           Parte 05
         </span>
-        <h2 className="text-2xl sm:text-3xl font-display font-medium text-blanco tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-display font-medium text-tinta tracking-tight">
           El logo
         </h2>
-        <p className="text-blanco-muted text-sm mt-1">
+        <p className="text-tinta-muted text-sm mt-1">
           Lo que le gusta, lo que no, y sus referencias.
         </p>
       </div>
@@ -95,7 +95,7 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
       <div className="space-y-6">
         {/* ¿Tiene logo ahora? */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
             ¿Tiene logo ahora?
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-2">
@@ -108,8 +108,8 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
                   onClick={() => onChange({ has_current_logo: item.id })}
                   className={`p-3.5 rounded-xl border text-left transition-all ${
                     isSelected
-                      ? 'bg-tinta-hover border-ambar text-blanco font-medium'
-                      : 'bg-tinta-surface border-tinta-border text-blanco-muted hover:border-tinta-borderActive hover:text-blanco'
+                      ? 'bg-ambar-subtle border-ambar text-tinta font-medium shadow-sm'
+                      : 'bg-blanco border-tinta-border text-tinta-soft hover:border-tinta-borderDark hover:bg-blanco-hover'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
@@ -118,13 +118,13 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
                       className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${
                         isSelected
                           ? 'border-ambar bg-ambar'
-                          : 'border-tinta-border bg-tinta'
+                          : 'border-tinta-borderDark bg-blanco'
                       }`}
                     >
                       {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-tinta" />}
                     </div>
                   </div>
-                  <p className="text-xs text-blanco-dim">{item.desc}</p>
+                  <p className="text-xs text-tinta-muted">{item.desc}</p>
                 </button>
               );
             })}
@@ -133,11 +133,11 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
 
         {/* Si ya tiene logo, ¿qué quiere mantener y qué no? */}
         {(data.has_current_logo === 'Tengo, quiero mejorarlo' || data.has_current_logo === 'Tengo, quiero uno nuevo') && (
-          <div className="bg-tinta-surface border border-tinta-border rounded-xl p-4 animate-fadeIn">
-            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+          <div className="bg-blanco-hueso border border-tinta-border rounded-xl p-4 animate-fadeIn">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
               Si ya tiene logo, ¿qué quiere mantener y qué no?
             </label>
-            <p className="text-xs text-blanco-dim mb-2">
+            <p className="text-xs text-tinta-muted mb-2">
               Detalle colores, formas o símbolos que rescata o descarta.
             </p>
             <textarea
@@ -145,14 +145,14 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
               value={data.current_logo_changes}
               onChange={(e) => onChange({ current_logo_changes: e.target.value })}
               placeholder="Ej. Mantener el color azul marino, pero descartar el símbolo actual..."
-              className="w-full px-3.5 py-2.5 bg-tinta border border-tinta-border rounded-lg text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
+              className="w-full px-3.5 py-2.5 bg-blanco border border-tinta-borderDark rounded-lg text-tinta placeholder-tinta-subtle text-sm focus:outline-none focus:border-ambar transition-colors shadow-sm"
             />
           </div>
         )}
 
         {/* ¿Qué tipo de logo le atrae más? */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
             ¿Qué tipo de logo le atrae más?
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-2">
@@ -165,8 +165,8 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
                   onClick={() => onChange({ logo_style_preference: type.id })}
                   className={`p-3.5 rounded-xl border text-left transition-all ${
                     isSelected
-                      ? 'bg-tinta-hover border-ambar text-blanco font-medium'
-                      : 'bg-tinta-surface border-tinta-border text-blanco-muted hover:border-tinta-borderActive hover:text-blanco'
+                      ? 'bg-ambar-subtle border-ambar text-tinta font-medium shadow-sm'
+                      : 'bg-blanco border-tinta-border text-tinta-soft hover:border-tinta-borderDark hover:bg-blanco-hover'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
@@ -175,13 +175,13 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
                       className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${
                         isSelected
                           ? 'border-ambar bg-ambar'
-                          : 'border-tinta-border bg-tinta'
+                          : 'border-tinta-borderDark bg-blanco'
                       }`}
                     >
                       {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-tinta" />}
                     </div>
                   </div>
-                  <p className="text-xs text-blanco-dim">{type.desc}</p>
+                  <p className="text-xs text-tinta-muted">{type.desc}</p>
                 </button>
               );
             })}
@@ -191,10 +191,10 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
         {/* Colores que le gustan / Colores que NO quiere */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
               Colores que le gustan
             </label>
-            <p className="text-xs text-blanco-dim mb-2">
+            <p className="text-xs text-tinta-muted mb-2">
               Escriba los tonos de su preferencia.
             </p>
             <input
@@ -202,15 +202,15 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
               value={data.colors_liked}
               onChange={(e) => onChange({ colors_liked: e.target.value })}
               placeholder="Ej. Azul marino, gris acero, negro..."
-              className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
+              className="w-full px-4 py-3 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-sm focus:outline-none focus:border-ambar transition-colors shadow-sm"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
               Colores que NO quiere
             </label>
-            <p className="text-xs text-blanco-dim mb-2">
+            <p className="text-xs text-tinta-muted mb-2">
               Colores que prefiera no ver en su marca.
             </p>
             <input
@@ -218,17 +218,17 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
               value={data.colors_disliked}
               onChange={(e) => onChange({ colors_disliked: e.target.value })}
               placeholder="Ej. Nada de fucsia, verde claro ni naranja..."
-              className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
+              className="w-full px-4 py-3 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-sm focus:outline-none focus:border-ambar transition-colors shadow-sm"
             />
           </div>
         </div>
 
         {/* Logos o marcas que le gustan */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft mb-1">
             Logos o marcas que le gustan
           </label>
-          <p className="text-xs text-blanco-dim mb-2">
+          <p className="text-xs text-tinta-muted mb-2">
             De cualquier rubro. Pegue links o escriba el nombre y qué le gusta de cada uno.
           </p>
           <textarea
@@ -236,31 +236,31 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
             value={data.benchmark_logos}
             onChange={(e) => onChange({ benchmark_logos: e.target.value })}
             placeholder="Nombres de marcas o enlaces..."
-            className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm leading-relaxed focus:outline-none focus:border-ambar transition-colors"
+            className="w-full px-4 py-3 bg-blanco border border-tinta-borderDark rounded-xl text-tinta placeholder-tinta-subtle text-sm leading-relaxed focus:outline-none focus:border-ambar transition-colors shadow-sm"
           />
         </div>
 
         {/* Sus imágenes de referencia */}
         <div>
           <div className="flex items-center justify-between mb-1">
-            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-tinta-soft">
               Sus imágenes de referencia
             </label>
-            <span className="text-xs font-mono tabular-nums text-blanco-dim">
+            <span className="text-xs font-mono tabular-nums text-tinta-muted">
               {images.length}/12
             </span>
           </div>
-          <p className="text-xs text-blanco-dim mb-3">
+          <p className="text-xs text-tinta-muted mb-3">
             Súbalas aquí: capturas, fotos de letreros, logos que vio en la calle, fotos de su taller y sus productos terminados. Hasta 12 imágenes, 10 MB cada una.
           </p>
 
           {/* Upload Dropzone */}
           <div
             onClick={() => fileInputRef.current?.click()}
-            className={`border border-dashed rounded-xl p-5 text-center cursor-pointer transition-colors ${
+            className={`border border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
               isUploading
-                ? 'border-ambar/60 bg-tinta-surface'
-                : 'border-tinta-border hover:border-tinta-borderActive bg-tinta-surface/60 hover:bg-tinta-surface'
+                ? 'border-ambar bg-ambar-subtle'
+                : 'border-tinta-borderDark hover:border-ambar bg-blanco hover:bg-blanco-hover'
             }`}
           >
             <input
@@ -273,17 +273,19 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
             />
 
             {isUploading ? (
-              <div className="flex items-center justify-center gap-2 py-2 text-blanco-muted text-xs">
-                <Loader2 className="w-4 h-4 text-ambar animate-spin" />
+              <div className="flex items-center justify-center gap-2 py-2 text-tinta-muted text-xs">
+                <Loader2 className="w-4 h-4 text-ambar-dark animate-spin" />
                 <span>Subiendo imágenes...</span>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center py-2">
-                <Upload className="w-5 h-5 text-blanco-muted mb-2" />
-                <p className="text-xs font-medium text-blanco mb-0.5">
+                <div className="w-10 h-10 rounded-full bg-blanco-hueso border border-tinta-border flex items-center justify-center mb-2">
+                  <Upload className="w-4 h-4 text-tinta-muted" />
+                </div>
+                <p className="text-xs font-medium text-tinta mb-0.5">
                   Elegir fotos
                 </p>
-                <p className="text-[11px] text-blanco-dim">
+                <p className="text-[11px] text-tinta-muted">
                   JPG, PNG o WEBP desde su celular o computadora
                 </p>
               </div>
@@ -291,7 +293,7 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
           </div>
 
           {uploadError && (
-            <p className="mt-2 text-xs text-rose-400">
+            <p className="mt-2 text-xs text-rose-500">
               {uploadError}
             </p>
           )}
@@ -302,7 +304,7 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
               {images.map((img, idx) => (
                 <div
                   key={idx}
-                  className="group relative aspect-square rounded-lg overflow-hidden bg-tinta border border-tinta-border"
+                  className="group relative aspect-square rounded-lg overflow-hidden bg-blanco border border-tinta-border shadow-xs"
                 >
                   <img
                     src={img.url}
@@ -315,7 +317,7 @@ export const Step5Logo: React.FC<StepProps> = ({ data, onChange }) => {
                       e.stopPropagation();
                       handleRemoveImage(idx);
                     }}
-                    className="absolute top-1 right-1 w-5 h-5 rounded-md bg-tinta/90 text-blanco hover:text-rose-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute top-1 right-1 w-5 h-5 rounded-md bg-tinta text-blanco hover:bg-rose-600 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                     title="Eliminar"
                   >
                     <X className="w-3.5 h-3.5" />

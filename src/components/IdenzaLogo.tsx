@@ -9,31 +9,30 @@ export const IdenzaLogo: React.FC<IdenzaLogoProps> = ({
   size = 'md',
   showTagline = false 
 }) => {
-  const sizeClasses = {
-    sm: 'text-lg',
+  const textSizes = {
+    sm: 'text-xl',
     md: 'text-2xl',
     lg: 'text-3xl sm:text-4xl',
   };
 
-  const squareSizes = {
-    sm: 'w-[4px] h-[4px] mb-[2px]',
-    md: 'w-[5.5px] h-[5.5px] mb-[2px]',
-    lg: 'w-[7px] h-[7px] mb-[3px]',
+  const squareStyles = {
+    sm: 'top-[4px] left-[1px] w-[4.5px] h-[4.5px]',
+    md: 'top-[5px] left-[1.5px] w-[5.5px] h-[5.5px]',
+    lg: 'top-[7px] left-[2px] w-[7px] h-[7px]',
   };
 
   return (
-    <div className="inline-flex items-baseline gap-2.5">
-      <div className={`font-display font-medium ${sizeClasses[size]} tracking-normal text-blanco select-none flex items-baseline`}>
-        {/* The "i" with perfect amber square */}
-        <span className="inline-flex flex-col items-center justify-end leading-none">
-          <span className={`${squareSizes[size]} bg-ambar shrink-0`} />
-          <span className="leading-none">ı</span>
+    <div className="inline-flex items-center gap-3">
+      <div className={`font-display font-semibold ${textSizes[size]} tracking-tight text-tinta select-none flex items-center leading-none`}>
+        <span className="relative inline-block">
+          <span className="text-tinta">i</span>
+          <span className={`absolute ${squareStyles[size]} bg-ambar rounded-[0.5px] pointer-events-none`} />
         </span>
-        <span className="leading-none">denza</span>
+        <span>denza</span>
       </div>
 
       {showTagline && (
-        <span className="text-[11px] text-blanco-muted font-sans font-normal tracking-wide hidden sm:inline border-l border-tinta-border pl-2.5 my-auto">
+        <span className="text-xs text-tinta-muted font-sans font-normal tracking-wide hidden sm:inline border-l border-tinta-border pl-3 py-0.5">
           Demanda real antes que diseño
         </span>
       )}
