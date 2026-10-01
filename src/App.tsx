@@ -223,7 +223,7 @@ export const App: React.FC = () => {
       {/* Footer */}
       <footer className="mt-auto border-t border-tinta-border bg-blanco py-6 text-center text-xs text-tinta-muted">
         <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p>© {new Date().getFullYear()} idenza — Demanda real antes que diseño</p>
+          <p>© {new Date().getFullYear()} idenza</p>
           <button
             onClick={() => setShowAdmin(true)}
             className="text-tinta-muted hover:text-tinta flex items-center gap-1.5 transition-colors"

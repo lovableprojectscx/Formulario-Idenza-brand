@@ -2,12 +2,10 @@ import React from 'react';
 
 interface IdenzaLogoProps {
   size?: 'sm' | 'md' | 'lg';
-  showTagline?: boolean;
 }
 
 export const IdenzaLogo: React.FC<IdenzaLogoProps> = ({ 
-  size = 'md',
-  showTagline = false 
+  size = 'md'
 }) => {
   const textSizes = {
     sm: 'text-xl',
@@ -22,7 +20,7 @@ export const IdenzaLogo: React.FC<IdenzaLogoProps> = ({
   };
 
   return (
-    <div className="inline-flex items-center gap-3">
+    <div className="inline-flex items-center">
       <div className={`font-display font-semibold ${textSizes[size]} tracking-tight text-tinta select-none flex items-center leading-none`}>
         <span className="relative inline-block">
           <span className="text-tinta">i</span>
@@ -30,12 +28,6 @@ export const IdenzaLogo: React.FC<IdenzaLogoProps> = ({
         </span>
         <span>denza</span>
       </div>
-
-      {showTagline && (
-        <span className="text-xs text-tinta-muted font-sans font-normal tracking-wide hidden sm:inline border-l border-tinta-border pl-3 py-0.5">
-          Demanda real antes que diseño
-        </span>
-      )}
     </div>
   );
 };

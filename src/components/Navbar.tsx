@@ -12,7 +12,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmin, isSaved = true }) =
     <header className="sticky top-0 z-30 border-b border-tinta-border bg-blanco/95 backdrop-blur-sm shadow-sm">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Brand identity */}
-        <IdenzaLogo showTagline={true} />
+        <IdenzaLogo />
 
         {/* Right actions */}
         <div className="flex items-center gap-3">
