@@ -7,25 +7,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        denza: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
-          accent: '#2563eb', // crisp electric blue
-          accentHover: '#1d4ed8',
-          gold: '#d97706',
+        tinta: {
+          DEFAULT: '#0E1420', // Principal dominante (60%)
+          surface: '#131B2A', // Superficie de tarjetas
+          hover: '#172235',   // Hover en tarjetas
+          border: '#1E2C40',  // Bordes sobrios
+          borderSubtle: '#182436',
+          borderActive: '#2D3E57',
+        },
+        blanco: {
+          DEFAULT: '#F4F2ED', // Blanco hueso editorial (30%)
+          pure: '#FFFFFF',
+          muted: '#9EACB9',  // Texto secundario legible
+          dim: '#627182',    // Captions y placeholders
+        },
+        ambar: {
+          DEFAULT: '#E2A63D', // Acento ámbar (10%) - solo lo que importa
+          hover: '#CD922B',
+          glow: 'rgba(226, 166, 61, 0.15)',
+          subtle: 'rgba(226, 166, 61, 0.08)',
+          border: 'rgba(226, 166, 61, 0.35)',
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
       }
     },
   },

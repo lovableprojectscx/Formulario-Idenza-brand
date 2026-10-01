@@ -1,56 +1,23 @@
 import React from 'react';
 import { BrandBriefingData, PersonalityTraits } from '../../types/briefing';
-import { Sparkles, Sliders, MessageSquareQuote } from 'lucide-react';
 
 interface StepProps {
   data: BrandBriefingData;
   onChange: (updates: Partial<BrandBriefingData>) => void;
 }
 
-interface SliderDefinition {
+interface SliderItem {
   key: keyof PersonalityTraits;
-  leftLabel: string;
-  leftDesc: string;
-  rightLabel: string;
-  rightDesc: string;
+  left: string;
+  right: string;
 }
 
-const SLIDERS: SliderDefinition[] = [
-  {
-    key: 'traditional_modern',
-    leftLabel: 'Tradicional',
-    leftDesc: 'Clásico, historia, método artesanal',
-    rightLabel: 'Moderno',
-    rightDesc: 'Vanguardista, tecnológico, actual',
-  },
-  {
-    key: 'industrial_elegant',
-    leftLabel: 'Industrial, rudo',
-    leftDesc: 'Metal pesado, fuerza, taller rudo',
-    rightLabel: 'Elegante, fino',
-    rightDesc: 'Líneas limpias, acabados delicados, diseño de autor',
-  },
-  {
-    key: 'formal_friendly',
-    leftLabel: 'Serio, formal',
-    leftDesc: 'Protocolar, corporativo, sobrio',
-    rightLabel: 'Cercano, amigable',
-    rightDesc: 'Cálido, accesible, de confianza directa',
-  },
-  {
-    key: 'economical_premium',
-    leftLabel: 'Económico',
-    leftDesc: 'Volumen accesible, precio imbatible',
-    rightLabel: 'Premium',
-    rightDesc: 'Exclusivo, alta gama, materiales selectos',
-  },
-  {
-    key: 'local_bigcorp',
-    leftLabel: 'Local, de barrio',
-    leftDesc: 'Trato personalizado cara a cara',
-    rightLabel: 'Gran empresa',
-    rightDesc: 'Escala nacional o corporativa de gran envergadura',
-  },
+const SLIDERS: SliderItem[] = [
+  { key: 'traditional_modern', left: 'Tradicional', right: 'Moderno' },
+  { key: 'industrial_elegant', left: 'Industrial, rudo', right: 'Elegante, fino' },
+  { key: 'formal_friendly', left: 'Serio, formal', right: 'Cercano, amigable' },
+  { key: 'economical_premium', left: 'Económico', right: 'Premium' },
+  { key: 'local_bigcorp', left: 'Local, de barrio', right: 'Gran empresa' },
 ];
 
 export const Step4Personality: React.FC<StepProps> = ({ data, onChange }) => {
@@ -72,116 +39,93 @@ export const Step4Personality: React.FC<StepProps> = ({ data, onChange }) => {
   };
 
   return (
-    <div className="space-y-8 animate-fadeIn">
-      {/* Section Header */}
-      <div className="border-b border-slate-800 pb-5">
-        <div className="flex items-center gap-2 text-blue-400 font-mono text-sm uppercase tracking-wider mb-1">
-          <Sparkles className="w-4 h-4" />
-          <span>Parte 04</span>
-        </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+    <div className="space-y-7 animate-fadeIn">
+      {/* Header */}
+      <div className="border-b border-tinta-border pb-4">
+        <span className="text-xs font-mono tabular-nums text-blanco-dim uppercase tracking-wider block mb-1">
+          Parte 04
+        </span>
+        <h2 className="text-2xl sm:text-3xl font-display font-medium text-blanco tracking-tight">
           La personalidad
         </h2>
-        <p className="text-slate-400 text-sm mt-1">
-          Si su negocio fuera una persona, ¿cómo hablaría, vestiría y se presentaría ante el mundo?
+        <p className="text-blanco-muted text-sm mt-1">
+          Si su negocio fuera una persona, ¿cómo sería?
         </p>
       </div>
 
-      <div className="space-y-7">
+      <div className="space-y-6">
         {/* Si su negocio fuera una persona, ¿cómo sería? */}
         <div>
-          <label className="block text-sm font-medium text-slate-200 mb-1.5">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
             Si su negocio fuera una persona, ¿cómo sería?
           </label>
-          <p className="text-xs text-slate-400 mb-2">
-            Descríbalo como a un conocido: ¿Es un maestro experimentado de pocas palabras? ¿Un joven innovador y dinámico? ¿Un ingeniero minucioso?
+          <p className="text-xs text-blanco-dim mb-2">
+            Descríbalo como si hablara de alguien conocido: su carácter, trato, vestimenta o actitud.
           </p>
           <textarea
             rows={2}
             value={data.business_as_person}
             onChange={(e) => onChange({ business_as_person: e.target.value })}
-            placeholder="Ej. Un profesional de 40 años, bien vestido pero sin corbata, que conoce el metal a fondo y da la mano con firmeza..."
-            className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm leading-relaxed"
+            placeholder="Ej. Un maestro experimentado, serio pero accesible, que da la mano con firmeza..."
+            className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm leading-relaxed focus:outline-none focus:border-ambar transition-colors"
           />
         </div>
 
         {/* Tres palabras que describan su negocio */}
         <div>
-          <div className="flex items-center gap-2 mb-1.5">
-            <MessageSquareQuote className="w-4 h-4 text-blue-400" />
-            <label className="text-sm font-medium text-slate-200">
-              Tres palabras que describan su negocio
-            </label>
-          </div>
-          <p className="text-xs text-slate-400 mb-2">
-            Ej. Resistente, puntual, serio (o las que mejor reflejen su espíritu)
+          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+            Tres palabras que describan su negocio
+          </label>
+          <p className="text-xs text-blanco-dim mb-2">
+            Ej. Resistente, puntual, serio
           </p>
           <input
             type="text"
             value={data.brand_words}
             onChange={(e) => onChange({ brand_words: e.target.value })}
-            placeholder="Ej. Resistente, puntual, profesional"
-            className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
+            placeholder="Ej. Resistente, puntual, serio"
+            className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
           />
         </div>
 
-        {/* Barras de calibración */}
+        {/* Mueva cada barra */}
         <div className="pt-2">
-          <div className="flex items-center gap-2 mb-2">
-            <Sliders className="w-4 h-4 text-amber-400" />
-            <label className="text-sm font-semibold text-slate-100">
-              Mueva cada barra hacia donde se sienta más cerca
-            </label>
-          </div>
-          <p className="text-xs text-slate-400 mb-5">
-            Deslice el selector hacia el extremo que mejor encaje con la identidad que busca proyectar.
+          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
+            Mueva cada barra hacia donde se sienta más cerca
+          </label>
+          <p className="text-xs text-blanco-dim mb-4">
+            Ajuste el indicador según el carácter que desea proyectar.
           </p>
 
-          <div className="space-y-6 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-4 sm:p-6">
+          <div className="space-y-5 bg-tinta-surface border border-tinta-border rounded-2xl p-5 sm:p-6">
             {SLIDERS.map((slider) => {
               const val = traits[slider.key] ?? 50;
 
               return (
                 <div key={slider.key} className="space-y-2">
-                  {/* Labels on sides */}
-                  <div className="flex items-center justify-between text-xs sm:text-sm font-medium">
-                    <div className="text-left max-w-[45%]">
-                      <span className={`${val < 45 ? 'text-blue-400 font-bold' : 'text-slate-300'}`}>
-                        {slider.leftLabel}
-                      </span>
-                      <p className="text-[11px] text-slate-500 font-normal hidden sm:block">
-                        {slider.leftDesc}
-                      </p>
-                    </div>
+                  <div className="flex items-center justify-between text-xs sm:text-sm">
+                    <span className={val < 45 ? 'text-blanco font-medium' : 'text-blanco-muted'}>
+                      {slider.left}
+                    </span>
 
-                    <div className="text-center px-2">
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700/60">
-                        {val === 50 ? 'Punto medio' : val < 50 ? `${50 - val}% hacia izq.` : `${val - 50}% hacia der.`}
-                      </span>
-                    </div>
+                    <span className="font-mono text-[11px] tabular-nums text-blanco-dim px-2 py-0.5 rounded bg-tinta border border-tinta-border">
+                      {val}%
+                    </span>
 
-                    <div className="text-right max-w-[45%]">
-                      <span className={`${val > 55 ? 'text-amber-400 font-bold' : 'text-slate-300'}`}>
-                        {slider.rightLabel}
-                      </span>
-                      <p className="text-[11px] text-slate-500 font-normal hidden sm:block">
-                        {slider.rightDesc}
-                      </p>
-                    </div>
+                    <span className={val > 55 ? 'text-blanco font-medium' : 'text-blanco-muted'}>
+                      {slider.right}
+                    </span>
                   </div>
 
-                  {/* Range input */}
-                  <div className="relative flex items-center py-1">
-                    <input
-                      type="range"
-                      min={0}
-                      max={100}
-                      step={5}
-                      value={val}
-                      onChange={(e) => handleSliderChange(slider.key, Number(e.target.value))}
-                      className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500 focus:outline-none"
-                    />
-                  </div>
+                  <input
+                    type="range"
+                    min={0}
+                    max={100}
+                    step={5}
+                    value={val}
+                    onChange={(e) => handleSliderChange(slider.key, Number(e.target.value))}
+                    className="w-full cursor-pointer"
+                  />
                 </div>
               );
             })}

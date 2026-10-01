@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrandBriefingData } from '../../types/briefing';
-import { Building2, Check, Sparkles } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 interface StepProps {
   data: BrandBriefingData;
@@ -29,47 +29,45 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
   };
 
   return (
-    <div className="space-y-8 animate-fadeIn">
-      {/* Section Header */}
-      <div className="border-b border-slate-800 pb-5">
-        <div className="flex items-center gap-2 text-blue-400 font-mono text-sm uppercase tracking-wider mb-1">
-          <Building2 className="w-4 h-4" />
-          <span>Parte 01</span>
-        </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+    <div className="space-y-7 animate-fadeIn">
+      {/* Header */}
+      <div className="border-b border-tinta-border pb-4">
+        <span className="text-xs font-mono tabular-nums text-blanco-dim uppercase tracking-wider block mb-1">
+          Parte 01
+        </span>
+        <h2 className="text-2xl sm:text-3xl font-display font-medium text-blanco tracking-tight">
           El negocio
         </h2>
-        <p className="text-slate-400 text-sm mt-1">
-          Lo básico para entender qué hacen y capturar la esencia de su trabajo.
+        <p className="text-blanco-muted text-sm mt-1">
+          Lo básico para entender qué hacen.
         </p>
       </div>
 
-      {/* Fields */}
       <div className="space-y-6">
         {/* Nombre del negocio */}
         <div>
-          <label className="block text-sm font-medium text-slate-200 mb-1.5">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
             Nombre del negocio
           </label>
-          <p className="text-xs text-slate-400 mb-2">
-            Si todavía no tiene nombre o quiere cambiarlo, dígalo aquí.
+          <p className="text-xs text-blanco-dim mb-2">
+            Si todavía no tiene nombre o quiere cambiarlo, dígalo.
           </p>
           <input
             type="text"
             value={data.business_name}
             onChange={(e) => onChange({ business_name: e.target.value })}
-            placeholder="Ej. Industrias Metálicas Denza / Sin nombre definitivo aún"
-            className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
+            placeholder="Ej. Industrias Metálicas Denza"
+            className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
           />
         </div>
 
         {/* ¿Qué fabrican o venden? */}
         <div>
-          <label className="block text-sm font-medium text-slate-200 mb-1.5">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
             ¿Qué fabrican o venden?
           </label>
-          <p className="text-xs text-slate-400 mb-3">
-            Marque todo lo que aplique a su producción actual o futura.
+          <p className="text-xs text-blanco-dim mb-3">
+            Marque todo lo que aplique.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -80,90 +78,89 @@ export const Step1Business: React.FC<StepProps> = ({ data, onChange }) => {
                   key={item}
                   type="button"
                   onClick={() => toggleProduct(item)}
-                  className={`flex items-center justify-between p-3 rounded-xl border text-left text-sm font-medium transition-all ${
+                  className={`flex items-center justify-between p-3 rounded-xl border text-left text-sm transition-all ${
                     isSelected
-                      ? 'bg-blue-600/15 border-blue-500/60 text-white shadow-sm'
-                      : 'bg-slate-900/60 border-slate-800/80 text-slate-300 hover:border-slate-700 hover:bg-slate-900'
+                      ? 'bg-tinta-hover border-ambar/70 text-blanco font-medium'
+                      : 'bg-tinta-surface border-tinta-border text-blanco-muted hover:border-tinta-borderActive hover:text-blanco'
                   }`}
                 >
                   <span>{item}</span>
                   <div
-                    className={`w-5 h-5 rounded-md flex items-center justify-center border transition-all ${
+                    className={`w-4 h-4 rounded-[3px] flex items-center justify-center border transition-all ${
                       isSelected
-                        ? 'bg-blue-600 border-blue-500 text-white'
-                        : 'border-slate-700 bg-slate-800/80'
+                        ? 'bg-ambar border-ambar text-tinta'
+                        : 'border-tinta-border bg-tinta'
                     }`}
                   >
-                    {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                    {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
                   </div>
                 </button>
               );
             })}
           </div>
 
-          <div className="mt-3">
+          <div className="mt-2.5">
             <input
               type="text"
               value={data.products_other}
               onChange={(e) => onChange({ products_other: e.target.value })}
-              placeholder="¿Fabrican algo más? Especifíquelo aquí..."
-              className="w-full px-4 py-2.5 bg-slate-900/80 border border-slate-800/80 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-xs sm:text-sm"
+              placeholder="Otro producto o servicio..."
+              className="w-full px-4 py-2.5 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-xs sm:text-sm focus:outline-none focus:border-ambar transition-colors"
             />
           </div>
         </div>
 
-        {/* Grid: Años operando y Ubicación */}
+        {/* Grid: Años y Alcance */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* ¿Desde cuándo trabajan? */}
           <div>
-            <label className="block text-sm font-medium text-slate-200 mb-1.5">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
               ¿Desde cuándo trabajan?
             </label>
-            <p className="text-xs text-slate-400 mb-2">
-              Ej. 2015, o hace 8 años, o estamos empezando
+            <p className="text-xs text-blanco-dim mb-2">
+              Ej. 2015
             </p>
             <input
               type="text"
               value={data.years_operating}
               onChange={(e) => onChange({ years_operating: e.target.value })}
-              placeholder="Ej. Desde 2018"
-              className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
+              placeholder="Ej. 2018"
+              className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors tabular-nums"
             />
           </div>
 
           {/* ¿Dónde están y hasta dónde llegan? */}
           <div>
-            <label className="block text-sm font-medium text-slate-200 mb-1.5">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
               ¿Dónde están y hasta dónde llegan?
             </label>
-            <p className="text-xs text-slate-400 mb-2">
-              Ciudad base, envíos a nivel nacional, regional…
+            <p className="text-xs text-blanco-dim mb-2">
+              Ciudad, envíos a…
             </p>
             <input
               type="text"
               value={data.location_scope}
               onChange={(e) => onChange({ location_scope: e.target.value })}
-              placeholder="Ej. Taller en Lima, envíos a todo el Perú"
-              className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
+              placeholder="Ej. Lima, envíos a todo el Perú"
+              className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm focus:outline-none focus:border-ambar transition-colors"
             />
           </div>
         </div>
 
         {/* ¿Cómo empezó el negocio? */}
         <div>
-          <label className="block text-sm font-medium text-slate-200 mb-1.5">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-blanco-muted mb-1">
             ¿Cómo empezó el negocio?
           </label>
-          <div className="flex items-center gap-1.5 text-xs text-amber-400/90 mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>En dos o tres líneas. A veces de aquí sale la idea del logo.</span>
-          </div>
+          <p className="text-xs text-blanco-dim mb-2">
+            En dos o tres líneas. A veces de aquí sale la idea del logo.
+          </p>
           <textarea
             rows={3}
             value={data.business_story}
             onChange={(e) => onChange({ business_story: e.target.value })}
-            placeholder="Ej. Empezamos en un pequeño taller familiar fabricando archivadores para notarías locales, y con los años nos fuimos especializando en metalmecánica pesada..."
-            className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm leading-relaxed"
+            placeholder="Cuéntenos brevemente el origen del negocio..."
+            className="w-full px-4 py-3 bg-tinta-surface border border-tinta-border rounded-xl text-blanco placeholder-blanco-dim text-sm leading-relaxed focus:outline-none focus:border-ambar transition-colors"
           />
         </div>
       </div>
