@@ -1,0 +1,6 @@
+# Bloqueo de rastreo e indexación para mantener privado el formulario de clientes
+User-agent: *
+Disallow: /
+
+# Sitemap de referencia
+Sitemap: https://idenza.site/sitemap.xml
